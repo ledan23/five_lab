@@ -21,44 +21,35 @@ class Bug{
 
 class BugLog{
     public:
-    Bug bug[4] = {
-        Bug("No selicom", 1, "25.11.2022", "Resolved", "Developer"),
-        Bug("Not conect to server", 2, "21.11.2022 ", "Open", "Developer"),
-        Bug("Text error", 6, "0.11.2022", "Open", "Developer"),
-        Bug("Not adaptive menu in mobile", 4, "23.11.2022", "Resolved", "UI/UX designer" )
-    };
-
-    string getStatus(){
-        for (int i = 0; i < 4; i++){
-            if (bug[i].status == "Resolved"){
-                cout << bug[i].description<< "\t" << bug[i].severity << "\t" << bug[i].deadline << "\t" << bug[i].status << "\t" << bug[i].assignee << endl;
-            }
-        }
-    };
-/*    int getSeverity(){
-            int i, j;
-            for (i = 0; i < 4 - 1; i++){
-                for (j = 0; j < 4 - i - 1; j++){
+        vector<Bug> bug;
+    void getSeverity(){
+            for (int i = 0; i < bug.size() - 1; i++){
+                for (int j = 0; j < bug.size() - i - 1; j++){
                     if (bug[j].severity > bug[j + 1].severity){
-                        swap(bug[j].severity, bug[j + 1].severity);
-                        swap(bug[j].deadline, bug[j + 1].deadline);
-                        swap(bug[j].status, bug[j + 1].status);
-                        swap(bug[j].assignee, bug[j + 1].assignee);
+                        swap(bug[j], bug[j+1]);
                     }
                 }
             }
     };
     void printSeverity(){
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < bug.size(); i++){
                 cout << bug[i].description  << "\t" << bug[i].severity << "\t" << bug[i].deadline << "\t" << bug[i].status << "\t" << bug[i].assignee << endl;
+        }   
     }
-        
-    }
-*/
+    void getStatus(){
+        for (int i = 0; i < bug.size(); i++){
+            if (bug[i].status == "Resolved"){
+                cout << bug[i].description<< "\t" << bug[i].severity << "\t" << bug[i].deadline << "\t" << bug[i].status << "\t" << bug[i].assignee  << endl;
+            }}}
 };
 int main(){
     BugLog buglog;
+    buglog.bug.push_back(Bug("No selicom", 1, "25.11.2022", "Resolved", "Developer"));
+    buglog.bug.push_back(Bug("Not conect to server", 2, "21.11.2022 ", "Open", "Developer"));
+    buglog.bug.push_back(Bug("Text error", 6, "0.11.2022", "Open", "Developer"));
+    buglog.bug.push_back(Bug("Not adaptive menu in mobile", 4, "23.11.2022", "Resolved", "UI/UX designer" ));
     buglog.getStatus();
-/*   buglog.getSeverity();
-    buglog.printSeverity(); */
+    cout << endl;
+    buglog.getSeverity();
+    buglog.printSeverity();
 }
