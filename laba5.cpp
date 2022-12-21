@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-class Bug{
+class Bug {
     public:
     string description;
     int severity;
@@ -19,7 +19,7 @@ class Bug{
     }
 };
 
-class BugLog{
+class BugLog {
     public:
         vector<Bug> bug;
     void getSeverity(){
@@ -40,13 +40,15 @@ class BugLog{
         for (int i = 0; i < bug.size(); i++){
             if (bug[i].status == "Resolved"){
                 cout << bug[i].description<< "\t" << bug[i].severity << "\t" << bug[i].deadline << "\t" << bug[i].status << "\t" << bug[i].assignee  << endl;
-            }}}
+            }
+        }
+    }
 };
 int main(){
     BugLog buglog;
     buglog.bug.push_back(Bug("No selicom", 1, "25.11.2022", "Resolved", "Developer"));
     buglog.bug.push_back(Bug("Not conect to server", 2, "21.11.2022 ", "Open", "Developer"));
-    buglog.bug.push_back(Bug("Text error", 6, "0.11.2022", "Open", "Developer"));
+    buglog.bug.push_back(Bug("Text error", 6, "26.11.2022", "Open", "Developer"));
     buglog.bug.push_back(Bug("Not adaptive menu in mobile", 4, "23.11.2022", "Resolved", "UI/UX designer" ));
     buglog.getStatus();
     cout << endl;
