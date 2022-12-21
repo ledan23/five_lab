@@ -33,13 +33,15 @@ class BugLog {
     };
     void printSeverity(){
         for (int i = 0; i < bug.size(); i++){
-                cout << bug[i].description  << "\t" << bug[i].severity << "\t" << bug[i].deadline << "\t" << bug[i].status << "\t" << bug[i].assignee << endl;
+                cout << bug[i].description  << "\t" << bug[i].severity << "\t" << bug[i].deadline << "\t" 
+                    << bug[i].status << "\t" << bug[i].assignee << endl;
         }   
     }
     void getStatus(){
         for (int i = 0; i < bug.size(); i++){
             if (bug[i].status == "Resolved"){
-                cout << bug[i].description<< "\t" << bug[i].severity << "\t" << bug[i].deadline << "\t" << bug[i].status << "\t" << bug[i].assignee  << endl;
+                cout << bug[i].description<< "\t" << bug[i].severity << "\t" << bug[i].deadline 
+                    << "\t" << bug[i].status << "\t" << bug[i].assignee  << endl;
             }
         }
     }
